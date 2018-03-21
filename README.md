@@ -1,0 +1,18 @@
+# Why this tool?
+
+If you have a architecture of microservices in docker containers and want to
+test them indiviually, this maybe help you
+
+# Use
+
+```sh
+docker run \
+  --rm \
+  --volume $(pwd):/go/src/app \
+  --network cc \
+  pitakill/cc-protobuf-generator:0.0.1 \
+  grpcurl -protoset Assets.protoset -plaintext \
+    -d '{"name": "helloWorld.jpg", "description":"My description", "alt": "Hello world picture", "content": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAOCAYAAAA1+Nx+AAABfGlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGAqSSwoyGFhYGDIzSspCnJ3UoiIjFJgv8PAzcDDIMRgxSCemFxc4BgQ4MOAE3y7xsAIoi/rgsxK8/x506a1fP4WNq+ZclYlOrj1gQF3SmpxMgMDIweQnZxSnJwLZOcA2TrJBUUlQPYMIFu3vKQAxD4BZIsUAR0IZN8BsdMh7A8gdhKYzcQCVhMS5AxkSwDZAkkQtgaInQ5hW4DYyRmJKUC2B8guiBvAgNPDRcHcwFLXkYC7SQa5OaUwO0ChxZOaFxoMcgcQyzB4MLgwKDCYMxgwWDLoMjiWpFaUgBQ65xdUFmWmZ5QoOAJDNlXBOT+3oLQktUhHwTMvWU9HwcjA0ACkDhRnEKM/B4FNZxQ7jxDLX8jAYKnMwMDcgxBLmsbAsH0PA4PEKYSYyjwGBn5rBoZt5woSixLhDmf8xkKIX5xmbARh8zgxMLDe+///sxoDA/skBoa/E////73o//+/i4H2A+PsQA4AJHdp4IxrEg8AAAGbaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA1LjQuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjI0PC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjE0PC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CkSGFloAAAHISURBVDgRnVRLLwNhFD2dTEJSLAmrVsVzYWEhRVOp6iRNRCIeO5EgCEoJqcaK+AvEQsVK4hGbIqlXItriBzTdoK1iLDShW1NmJmZak29oOqv7OOeeuY8ZTV19wxcUjxTQKOK5uBSJJBWWhEiYbGNEgWzJ2eBoEqivtwd6nR5Pz08wm00oKijEydkFPB4PuFRKpNhs7ViYn0M0FsWEw4kZ5xSMjY345D7R0dkll1XtgLFZwbKvGBoexei4A3Y7A4ZhZKLPd4L+gUGUlZZh0e3C9c0tXO5FfLwnZUxFhQGqAqFQCL7TUxGcSLzhnO/A2maRyZKRn5+HSDQGQfAtkYA/GJBS6OvpVhcQFiwtW2C8sCxKSoplcqZxeHgsuvF4HKtr63JKX65XF5BRPwZN0/hKke8qmfxQwkWf4l+R0ul0xKQyaDCUIxZ/VIb/9B8iEVDTjkkiqLamml+qDVqtFk1GIyytZni9R7+w5H7SkN39A9D+QDAdybDu7iOorqrExNgIUvxoNja3EAimse1WK1zzsyJjb2cbl1d+LC2vZFQAwuEwNKRfhfAdmFqa+fue/kXIxVE901yKkThEAY7jxJtWEoSZ/zd3JecbS0WJvcVmJE0AAAAASUVORK5CYII="}' \
+    tonatiuh:50051 \
+    Assets.AssetsManagement/CreateAsset
+```
